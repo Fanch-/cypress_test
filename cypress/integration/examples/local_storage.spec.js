@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-context('Local Storage', () => {
+context('Local Storage test', () => {
   beforeEach(() => {
     cy.visit('https://example.cypress.io/commands/local-storage')
   })
