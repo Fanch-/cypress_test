@@ -19,4 +19,4 @@ env:
   - TESTFOLDER=integration/examples
   - TESTFOLDER=integration/examples2
 script:
-  - $(npm bin)/cypress run $TESTFOLDER
+  - "$(npm bin)/cypress run $TESTFOLDER"
