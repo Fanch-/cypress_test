@@ -17,3 +17,5 @@ install:
   - npm ci
 script:
   - $(npm bin)/cypress run
+deploy:
+  skip_cleanup: true
