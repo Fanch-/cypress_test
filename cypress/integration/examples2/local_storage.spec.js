@@ -3,9 +3,10 @@
 context('Local Storage test', () => {
   beforeEach(() => {
     cy.visit('https://example.cypress.io/commands/local-storage')
-    console.log(Cypress.env())
-    console.log(Cypress.env('commit_msg'))
-    console.log(Cypress.env('rapport_id'))
+    cy.task('log', 'This message shows in stdout')
+    cy.task('log', Cypress.env())
+    cy.task('log', Cypress.env('commit_msg'))
+    cy.task('log', Cypress.env('rapport_id'))
 
   })
   // Although local storage is automatically cleared
