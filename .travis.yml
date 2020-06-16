@@ -20,8 +20,9 @@ before_script :
     - "export TRAVIS_COMMIT_MSG=\"$(git log --format=%B --no-merges -n 1)\""
     - echo "$TRAVIS_COMMIT_MSG"
     - export jsonReturn=$(node ./testRunCall.js)
+    - echo "$jsonReturn"
 #env:
 #  - TESTFOLDER=/home/travis/build/Fanch-/cypress_test/cypress/integration/examples
 #  - TESTFOLDER=/home/travis/build/Fanch-/cypress_test/cypress/integration/examples2
 script:
-   - cypress run --env commit_msg=$TRAVIS_COMMIT_MSG,rapport_id=$jsonReturn
+   - cypress run --env commit_msg="$TRAVIS_COMMIT_MSG",rapport_id="$jsonReturn"
