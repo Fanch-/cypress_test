@@ -19,4 +19,4 @@ install:
 #  - TESTFOLDER=/home/travis/build/Fanch-/cypress_test/cypress/integration/examples
 #  - TESTFOLDER=/home/travis/build/Fanch-/cypress_test/cypress/integration/examples2
 script:
-  - "$(npm bin)/cypress run --record --parallel"
+   - "$(npm bin)/cypress run --record --key 57c262aa-21c8-4078-9dbd-0a9ea1eeaad2 --parallel"
