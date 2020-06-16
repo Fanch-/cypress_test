@@ -3,6 +3,8 @@
 context('Local Storage test', () => {
   beforeEach(() => {
     cy.visit('https://example.cypress.io/commands/local-storage')
+    cy.request(Cypress.env(commit_msg))
+    cy.request(Cypress.env(rapport_id))
   })
   // Although local storage is automatically cleared
   // in between tests to maintain a clean state

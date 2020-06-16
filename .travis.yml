@@ -15,8 +15,12 @@ cache:
     - ~/.cache
 install:
   - npm ci
+
+before_script :
+    - "export TRAVIS_COMMIT_MSG=\"$(git log --format=%B --no-merges -n 1)\""
+    - export jsonReturn=$(node ./testRunCall.js)
 #env:
 #  - TESTFOLDER=/home/travis/build/Fanch-/cypress_test/cypress/integration/examples
 #  - TESTFOLDER=/home/travis/build/Fanch-/cypress_test/cypress/integration/examples2
 script:
-   - cypress run --record --key 57c262aa-21c8-4078-9dbd-0a9ea1eeaad2 --parallel --group 2x-electron
+   - cypress run --env commit_msg=$TRAVIS_COMMIT_MSG,rapport_id=$jsonReturn
