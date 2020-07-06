@@ -1,3 +1,4 @@
 {
-  "projectId": "aoog42"
+  "projectId": "aoog42",
+  "baseUrl" : "https://example.cypress.io/commands/location"
 }

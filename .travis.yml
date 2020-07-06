@@ -17,12 +17,7 @@ install:
   - npm install
 
 before_script :
-    - "export TRAVIS_COMMIT_MSG=\"$(git log --format=%B --no-merges -n 1)\""
-    - echo "$TRAVIS_COMMIT_MSG"
-    - export jsonReturn=$(node ./testRunCall.js)
-    - echo "$jsonReturn"
-#env:
-#  - TESTFOLDER=/home/travis/build/Fanch-/cypress_test/cypress/integration/examples
-#  - TESTFOLDER=/home/travis/build/Fanch-/cypress_test/cypress/integration/examples2
+    - "export COMMIT_MSG=\"$(git log -1 --pretty=%B)\""
+    - echo "$COMMIT_MSG"
 script:
-   - cypress run --env commit_msg="$TRAVIS_COMMIT_MSG",rapport_id="$jsonReturn"
+   - node ./start.js --commitMsg="$COMMIT_MSG" --qaeApi=true

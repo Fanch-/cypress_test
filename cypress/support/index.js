@@ -16,5 +16,27 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 
-// Alternatively you can use CommonJS syntax:
+/**
+ * Don't care about
+ * @returns {string}
+ */
+
+
+beforeEach(function(){
+    cy.task('log', Cypress.env('qaeApi'))
+    if (Cypress.env('qaeApi') === 'true') {
+        cy.startTest(this.currentTest.title, 'cypress')
+    }
+})
+
+afterEach(function(){
+    if (Cypress.env('qaeApi') === 'true') {
+        let body = ''
+        if (this.currentTest.state  === 'failed') {
+            body = {errorMessage: this.currentTest.err.stack, ft: 'IDENTITY'}
+        }
+        cy.stopTest(this.currentTest.state, body)
+    }
+});
+
 // require('./commands')

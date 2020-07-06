@@ -1,21 +1,26 @@
 /// <reference types="cypress" />
 
-context('Window', () => {
+describe('FILE 2', () => {
   beforeEach(() => {
-    cy.visit('https://example.cypress.io/commands/window')
+    cy.task('log','before each of file 2')
+    //no cy.visit here
   })
 
-  it('cy.window() - get the global window object', () => {
+  afterEach(() => {
+    cy.task('log','after each of file 2')
+  })
+
+  it('file 2 test 1', () => {
     // https://on.cypress.io/window
     cy.window().should('have.property', 'top')
   })
 
-  it('cy.document() - get the document object', () => {
+  it('file 2 test 2', () => {
     // https://on.cypress.io/document
     cy.document().should('have.property', 'charset').and('eq', 'UTF-8')
   })
 
-  it('cy.title() - get the title', () => {
+  it('file 2 test 3', () => {
     // https://on.cypress.io/title
     cy.title().should('include', 'Kitchen Sink')
   })
